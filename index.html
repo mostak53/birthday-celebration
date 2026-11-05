@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday! 🎂✨</title>
+  <!-- Google Fonts for aesthetic typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Canvas for floating particles & confetti -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Ambient Audio Controls -->
+  <div class="audio-control-container">
+    <button id="music-btn" class="glass-btn audio-btn" title="Toggle Music">
+      <span id="music-icon">🎵</span>
+      <span id="music-text">Play Music</span>
+    </button>
+    <audio id="bg-music" loop preload="auto">
+      <!-- You can replace with any romantic/cheerful track url or local file -->
+      <source src="riverbend-serenade.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="floating-decorations">
+      <span class="decor decor-1">🎈</span>
+      <span class="decor decor-2">✨</span>
+      <span class="decor decor-3">🌸</span>
+      <span class="decor decor-4">💖</span>
+      <span class="decor decor-5">🎉</span>
+    </div>
+
+    <div class="hero-content">
+      <div class="badge-pill">A Special Celebration For Someone Incredible</div>
+      <h1 class="hero-title">Happy Birthday, <span class="highlight-text" id="friend-name">Bestie</span>! 🎂✨</h1>
+      <p class="hero-subtitle">
+        To the most wonderful person who brings endless sunshine, laughs, and magic into my life. Today is all about celebrating you!
+      </p>
+
+      <!-- Countdown / Birthday Banner -->
+      <div class="timer-card glass-panel" id="timer-box">
+        <div class="timer-heading" id="timer-status">Countdown to the Big Day ⏳</div>
+        <div class="countdown-grid" id="countdown-grid">
+          <div class="countdown-item">
+            <span class="countdown-num" id="days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-num" id="hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-num" id="minutes">00</span>
+            <span class="countdown-label">Mins</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-num" id="seconds">00</span>
+            <span class="countdown-label">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#interactive-cake" class="btn btn-primary">Make a Wish 🎂</a>
+        <a href="#photo-gallery" class="btn btn-secondary">Our Memories 📸</a>
+        <a href="#secret-letter" class="btn btn-tertiary">Read My Letter 💌</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Birthday Cake & Make A Wish Section -->
+  <section id="interactive-cake" class="cake-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Fun</span>
+        <h2 class="section-title">Blow Out the Candles & Make a Wish 🕯️</h2>
+        <p class="section-desc">Close your eyes, think of your sweetest dream, and click the candle to blow it out!</p>
+      </div>
+
+      <div class="cake-stage">
+        <div class="cake-container" id="cake-wrapper">
+          <div class="plate"></div>
+          <div class="cake-layer layer-bottom"></div>
+          <div class="cake-layer layer-middle"></div>
+          <div class="cake-layer layer-top">
+            <div class="frosting-drip"></div>
+          </div>
+          <div class="candle" id="candle">
+            <div class="candle-stick"></div>
+            <div class="flame" id="flame"></div>
+            <div class="smoke" id="smoke"></div>
+          </div>
+        </div>
+
+        <button id="blow-candle-btn" class="btn btn-glow">Blow Out the Candle! 💨</button>
+        <p id="wish-unlocked-msg" class="wish-message hidden">
+          ✨ May every single wish in your heart come true this year and beyond! You deserve the world! 🌟🎉
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery / Polaroid Scrapbook -->
+  <section id="photo-gallery" class="gallery-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Cherished Moments</span>
+        <h2 class="section-title">Snapshots of Sunshine & Smiles 📸</h2>
+        <p class="section-desc">A little scrapbook of moments that remind me how lucky I am to have you by my side.</p>
+      </div>
+
+      <div class="polaroid-grid">
+        <!-- Photo Card 1 -->
+        <div class="polaroid-card" data-tilt>
+          <div class="polaroid-pin">📌</div>
+          <div class="polaroid-img-wrap">
+            <img src="images/photo1.jpg" onerror="this.src='images/placeholder1.svg'" alt="Favorite Memory 1" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-text">Unfiltered laughter & endless vibes ✨</p>
+            <span class="caption-date">Pure happiness</span>
+          </div>
+        </div>
+
+        <!-- Photo Card 2 -->
+        <div class="polaroid-card" data-tilt>
+          <div class="polaroid-pin">📌</div>
+          <div class="polaroid-img-wrap">
+            <img src="images/photo2.jpg" onerror="this.src='images/placeholder2.svg'" alt="Favorite Memory 2" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-text">Amamder protidiner kaj 🌸</p>
+            <span class="caption-date">Iconic chobi eita</span>
+          </div>
+        </div>
+
+        <!-- Photo Card 3 -->
+        <div class="polaroid-card" data-tilt>
+          <div class="polaroid-pin">📌</div>
+          <div class="polaroid-img-wrap">
+            <img src="images/photo3.jpg" onerror="this.src='images/placeholder3.svg'" alt="Favorite Memory 3" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-text">Partner in crime & favorite confidante 💫</p>
+            <span class="caption-date">Forever adventures</span>
+          </div>
+        </div>
+
+        <!-- Photo Card 4 -->
+        <div class="polaroid-card" data-tilt>
+          <div class="polaroid-pin">📌</div>
+          <div class="polaroid-img-wrap">
+            <img src="images/photo4.jpg" onerror="this.src='images/placeholder4.svg'" alt="Favorite Memory 4" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-text">Eita ektu beshi sundor chilo 🥂</p>
+            <span class="caption-date">The smile</span>
+          </div>
+        </div>
+
+        <!-- Photo Card 5 -->
+        <div class="polaroid-card" data-tilt>
+          <div class="polaroid-pin">📌</div>
+          <div class="polaroid-img-wrap">
+            <img src="images/photo5.jpg" onerror="this.src='images/placeholder5.svg'" alt="Favorite Memory 5" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-text">Making ordinary days feel like pure magic ✨</p>
+            <span class="caption-date">Pure innocent</span>
+          </div>
+        </div>
+
+        <!-- Photo Card 6 -->
+        <div class="polaroid-card" data-tilt>
+          <div class="polaroid-pin">📌</div>
+          <div class="polaroid-img-wrap">
+            <img src="images/photo6.jpg" onerror="this.src='images/placeholder6.svg'" alt="Favorite Memory 6" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-text">To a lifetime of more crazy adventures together 💖</p>
+            <span class="caption-date">Always & forever</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Reasons Why You're Special Section -->
+  <section class="qualities-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Why You Are One of a Kind</span>
+        <h2 class="section-title">A Few Things I Adore About You 💖</h2>
+      </div>
+
+      <div class="cards-grid">
+        <div class="glass-card feature-card">
+          <div class="feature-icon">✨</div>
+          <h3 class="feature-title">Your Radiant Energy</h3>
+          <p class="feature-desc">No matter how gloomy a day might feel, you know exactly how to bring laughter, comfort, and positive warmth.</p>
+        </div>
+
+        <div class="glass-card feature-card">
+          <div class="feature-icon">🌿</div>
+          <h3 class="feature-title">Your Pure Heart</h3>
+          <p class="feature-desc">You are genuinely kind, endlessly empathetic, and always show up for the people you love without hesitation.</p>
+        </div>
+
+        <div class="glass-card feature-card">
+          <div class="feature-icon">👑</div>
+          <h3 class="feature-title">Your Resilience</h3>
+          <p class="feature-desc">You handle every challenge with such poise, grace, and inner strength. You inspire me more than you know.</p>
+        </div>
+
+        <div class="glass-card feature-card">
+          <div class="feature-icon">🍕</div>
+          <h3 class="feature-title">Our Crazy Inside Jokes</h3>
+          <p class="feature-desc">From random 2 AM conversations to jokes only we understand, having you as my best friend is the greatest blessing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Compliment & Birthday Wish Jar -->
+  <section class="jar-section">
+    <div class="section-container">
+      <div class="jar-wrapper glass-panel">
+        <span class="jar-icon">🎁</span>
+        <h2 class="jar-title">The Birthday Jar of Warm Thoughts</h2>
+        <p class="jar-desc">Click below anytime you need a reminder of how cherished you are!</p>
+        <div class="quote-display" id="quote-display">
+          “You make the world brighter just by being in it.”
+        </div>
+        <button id="new-quote-btn" class="btn btn-secondary">Pull Another Surprise Note 💌</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Heartfelt Letter / Secret Envelope Section -->
+  <section id="secret-letter" class="letter-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">From My Heart To Yours</span>
+        <h2 class="section-title">A Letter For You 💌</h2>
+        <p class="section-desc">Click on the wax seal below to open your envelope.</p>
+      </div>
+
+      <div class="envelope-wrapper">
+        <div class="envelope" id="envelope">
+          <div class="envelope-flap" id="envelope-flap"></div>
+          <div class="wax-seal" id="wax-seal">
+            <span>❤️</span>
+          </div>
+          <div class="envelope-pocket"></div>
+          
+          <div class="letter-paper" id="letter-paper">
+            
+            <div class="letter-content">
+              <h3 class="letter-salutation">Dearest Best Friend,</h3>
+              <p>
+                Happy Birthday! 🎈 As you celebrate another trip around the sun, I wanted to take a moment to celebrate YOU.
+              </p>
+              <p>
+                Life is so much richer, funnier, and more meaningful with you in it. Thank you for being the one I can share my wildest dreams, silliest jokes, and deepest secrets with. You are rare, irreplaceable, and truly one of a kind.
+              </p>
+              <p>
+                In this new chapter, I hope you achieve every single goal you've set your heart on, experience unimaginable joy, and surround yourself with peace and love.
+              </p>
+              <p class="letter-closing">
+                Always here cheering for you,<br>
+                <span class="letter-sign">Your Best Friend Forever 💖</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Crafted with endless love & appreciation for your special day ✨</p>
+    
+  </footer>
+
+  <!-- Lightbox Modal for Photos -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Zoomed view">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
